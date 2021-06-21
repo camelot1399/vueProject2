@@ -9,6 +9,7 @@
     </div>
 </template>
 <script>
+import { mapMutations } from 'vuex';
 export default {
     data() {
         return {
@@ -18,9 +19,10 @@ export default {
         }
     },
     methods: {
+        ...mapMutations(['addToListItem']),
         add() {
             let {name, age} = this;
-            this.$emit('add', {name, age});
+            this.addToListItem({name, age});
         }
     }
 }
